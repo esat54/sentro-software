@@ -1,26 +1,546 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Base system colors */
+    --background: 0 0% 0%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --radius: 0.5rem;
+    
+    /* Koyu Mor + Lacivert Harmanı - Profesyonel Renk Paleti */
+    --primary: 250 70% 55%; /* #6366F1 - Mor-lacivert harmanı */
+    --primary-foreground: 0 0% 100%; /* Beyaz text daha iyi kontrast için */
+    --primary-light: 250 65% 65%; /* #818CF8 - Açık mor-lacivert */
+    --primary-dark: 250 75% 45%; /* #4F46E5 - Koyu mor-lacivert */
+    
+    --ring: 250 70% 55%; /* Mor-lacivert focus ring */
+    
+    /* Mor-lacivert tonlarında secondary renkler */
+    --dark-gray: 250 25% 25%; /* Koyu mor-lacivertimsi gri */
+    --medium-gray: 250 15% 40%; /* Orta mor-lacivertimsi gri */
+    --light-gray: 250 40% 96%; /* Çok açık mor-lacivertimsi */
+    
+    /* Mor-lacivert accent renkleri */
+    --success: 250 70% 60%; /* Parlak mor-lacivert başarı */
+    --growth: 250 65% 55%; /* Büyüme mor-laciverti */
+    --mint: 240 70% 55%; /* Lacivert-mor */
+    --lime: 260 70% 60%; /* Açık mor-lacivert */
+    
+    --warning: 45 100% 50%; /* #FFB800 - Parlak sarı */
+    --error: 348 100% 61%; /* #FF3D71 - Parlak kırmızı */
+    --info: 200 100% 50%; /* Parlak cyan-mavi */
+    
+    /* Mor-lacivert tonlarında chart renkleri */
+    --chart-1: 250 70% 55%; /* Ana parlak mor-lacivert */
+    --chart-2: 250 65% 65%; /* Açık mor-lacivert */
+    --chart-3: 250 75% 45%; /* Koyu mor-lacivert */
+    --chart-4: 240 70% 55%; /* Lacivert-mor */
+    --chart-5: 260 70% 60%; /* Açık mor-lacivert */
+  }
+
+  .dark {
+    /* Dark theme base colors */
+    --background: 20 14.3% 4.1%;
+    --foreground: 0 0% 95%;
+    --card: 24 9.8% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 95%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    
+    /* Dark modda mor-lacivertler daha da parlak */
+    --primary: 250 70% 60%; /* Daha parlak mor-lacivert */
+    --primary-foreground: 0 0% 100%; /* Beyaz text */
+    --primary-light: 250 65% 70%; /* Çok açık mor-lacivert */
+    --primary-dark: 250 75% 50%; /* Orta ton mor-lacivert */
+    
+    --ring: 250 70% 60%;
+    
+    /* Dark modda mor-lacivert tonları */
+    --dark-gray: 250 30% 15%; /* Koyu mor-lacivertimsi */
+    --medium-gray: 250 20% 30%; /* Orta mor-lacivertimsi */
+    --light-gray: 250 50% 8%; /* Çok koyu mor-lacivertimsi */
+    
+    /* Dark mode canlı accent renkleri */
+    --success: 250 70% 65%; /* Çok parlak mor-lacivert */
+    --growth: 250 65% 60%; /* Parlak büyüme mor-laciverti */
+    --mint: 240 70% 60%; /* Parlak lacivert-mor */
+    --lime: 260 70% 65%; /* Çok parlak açık mor-lacivert */
+    
+    --warning: 45 100% 55%; /* Parlak sarı */
+    --error: 348 100% 65%; /* Parlak kırmızı */
+    --info: 200 100% 55%; /* Parlak cyan */
+    
+    /* Dark mode chart renkleri */
+    --chart-1: 250 70% 60%; /* Ana parlak mor-lacivert */
+    --chart-2: 250 65% 70%; /* Açık parlak mor-lacivert */
+    --chart-3: 250 75% 50%; /* Koyu parlak mor-lacivert */
+    --chart-4: 240 70% 60%; /* Parlak lacivert-mor */
+    --chart-5: 260 70% 65%; /* Parlak açık mor-lacivert */
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Canlı animasyonlar */
+@keyframes fadeIn {
+  from { 
+    opacity: 0.6; 
+  }
+  to { 
+    opacity: 1; 
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(var(--primary) / 0.8);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes neonGlow {
+  0%, 100% {
+    text-shadow: 
+      0 0 5px hsl(var(--primary)),
+      0 0 10px hsl(var(--primary)),
+      0 0 15px hsl(var(--primary)),
+      0 0 20px hsl(var(--primary));
+  }
+  50% {
+    text-shadow: 
+      0 0 2px hsl(var(--primary)),
+      0 0 5px hsl(var(--primary)),
+      0 0 8px hsl(var(--primary)),
+      0 0 12px hsl(var(--primary));
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+.scale-in {
+  animation: scaleIn 0.3s ease-out;
+}
+
+.pulse-soft {
+  animation: pulseSoft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.shimmer {
+  animation: shimmer 2s linear infinite;
+}
+
+.neon-glow {
+  animation: neonGlow 2s ease-in-out infinite;
+}
+
+/* Seçim stilleri - canlı yeşil */
+::selection {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+/* Focus stilleri - parlak yeşil glow */
+:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+  box-shadow: 0 0 15px hsl(var(--primary) / 0.5);
+}
+
+/* Özel scrollbar - yeşil tonları */
+
+
+/* Sentro Utilities */
+
+/* Smooth transitions utility */
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-gentle {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.transition-bouncy {
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Improved scroll utilities */
+.scroll-margin-top {
+  scroll-margin-top: 6rem;
+}
+
+.scroll-smooth-enhanced {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scroll-padding-top: 6rem;
+}
+
+/* Glassmorphism utility - mor-lacivert tonları */
+.glass {
+  background: rgba(99, 102, 241, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.glass-dark {
+  background: rgba(99, 102, 241, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+/* Gradient text utility - mor-lacivert gradyanlar */
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1 0%, #818cf8 50%, #6366f1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-vibrant {
+  background: linear-gradient(45deg, #6366f1, #818cf8, #6366f1, #4f46e5);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Neon text utility */
+.text-neon {
+  color: hsl(var(--primary));
+  text-shadow: 
+    0 0 5px hsl(var(--primary)),
+    0 0 10px hsl(var(--primary)),
+    0 0 15px hsl(var(--primary));
+}
+
+/* Glow effects - parlak yeşil */
+.glow-primary {
+  box-shadow: 0 0 25px hsl(var(--primary) / 0.4);
+}
+
+.glow-primary-lg {
+  box-shadow: 0 0 50px hsl(var(--primary) / 0.5);
+}
+
+.glow-neon {
+  box-shadow: 
+    0 0 30px hsl(var(--primary)),
+    0 0 60px hsl(var(--primary) / 0.4),
+    0 0 90px hsl(var(--primary) / 0.2);
+}
+
+/* Button utilities - lacivert */
+.btn-primary {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
+  color: hsl(var(--primary-foreground));
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, hsl(var(--primary-light)) 0%, hsl(var(--lime)) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
+}
+
+.btn-neon {
+  background: transparent;
+  color: hsl(var(--primary));
+  border: 2px solid hsl(var(--primary));
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 
+    0 0 20px hsl(var(--primary) / 0.3),
+    inset 0 0 20px hsl(var(--primary) / 0.1);
+}
+
+.btn-neon:hover {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  box-shadow: 
+    0 0 40px hsl(var(--primary) / 0.6),
+    inset 0 0 40px hsl(var(--primary) / 0.2);
+  transform: scale(1.05);
+}
+
+.btn-secondary {
+  background-color: hsl(var(--light-gray));
+  color: hsl(var(--dark-gray));
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid hsl(var(--primary) / 0.2);
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, hsl(var(--mint)) 0%, hsl(var(--primary)) 100%);
+  color: hsl(var(--primary-foreground));
+  box-shadow: 0 0 25px hsl(var(--primary) / 0.4);
+}
+
+/* Hover effects */
+.btn-hover-lift {
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(99, 102, 241, 0.2);
+}
+
+.btn-hover-glow {
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-hover-glow:hover {
+  box-shadow: 0 0 30px hsl(var(--primary) / 0.7);
+  transform: scale(1.02);
+}
+
+/* Card utilities - lacivert tonları */
+.card {
+  background-color: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.card-elevated {
+  background-color: hsl(var(--card));
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.1);
+  border: 1px solid hsl(var(--primary) / 0.1);
+}
+
+.card-neon {
+  background: rgba(99, 102, 241, 0.02);
+  border: 1px solid hsl(var(--primary) / 0.3);
+  border-radius: 0.75rem;
+  box-shadow: 
+    0 0 20px hsl(var(--primary) / 0.1),
+    inset 0 0 20px hsl(var(--primary) / 0.05);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.4s ease-in-out;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(99, 102, 241, 0.15);
+  border-color: hsl(var(--primary) / 0.4);
+}
+
+.card-hover-glow {
+  transition: all 0.4s ease-in-out;
+}
+
+.card-hover-glow:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 0 40px hsl(var(--primary) / 0.3),
+    0 20px 40px rgba(99, 102, 241, 0.1);
+}
+
+/* Container utility */
+.container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Section utility */
+.section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* Loading spinner - yeşil */
+.spinner {
+  animation: spin 1s linear infinite;
+  color: hsl(var(--primary));
+}
+
+.spinner-glow {
+  animation: spin 1s linear infinite;
+  color: hsl(var(--primary));
+  filter: drop-shadow(0 0 10px hsl(var(--primary) / 0.6));
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Progress bar - canlı yeşil */
+.progress-bar {
+  background: linear-gradient(90deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
+  box-shadow: 0 0 15px hsl(var(--primary) / 0.4);
+}
+
+/* Badge utilities */
+.badge-success {
+  background: linear-gradient(135deg, hsl(var(--success)) 0%, hsl(var(--growth)) 100%);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  box-shadow: 0 0 10px hsl(var(--success) / 0.3);
+}
+
+/* Dark mode specific adjustments */
+@media (prefers-color-scheme: dark) {
+  .glass {
+    background: rgba(99, 102, 241, 0.05);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+  }
+  
+  .glass-dark {
+    background: rgba(99, 102, 241, 0.03);
+    border: 1px solid rgba(99, 102, 241, 0.15);
+  }
+  
+  .card-hover:hover {
+    box-shadow: 0 25px 50px rgba(99, 102, 241, 0.2);
+  }
+  
+  .card-hover-glow:hover {
+    box-shadow: 
+      0 0 50px hsl(var(--primary) / 0.4),
+      0 25px 50px rgba(99, 102, 241, 0.15);
+  }
+}
+
+/* Next.js development badge'ini gizle */
+div[data-next-badge="true"] {
+  display: none !important;
 }

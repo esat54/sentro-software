@@ -1,78 +1,136 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Contact from "@/components/contact";
+import FAQ from "@/components/faq";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
+import HeroArea from "@/components/hero";
+import Services from "@/components/services";
+import Head from "next/head";
 
 export default function Home() {
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black`}
-    >
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      <Head>
+        {/* Primary Meta Tags */}
+        <title>Sentro Yazılım</title>
+        <meta name="title" content="Sentro Yazılım - Web, Mobil ve Kurumsal Yazılım Çözümleri" />
+        <meta
+          name="description"
+          content="Modern yazılım çözümleri ile işletmenizi dijital dönüşümde bir adım öne taşıyoruz. Web, mobil ve kurumsal yazılım projelerinde uzman ekibimizle yanınızdayız."
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the index.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs/pages/getting-started?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+        <meta
+          name="keywords"
+          content="yazılım geliştirme, web tasarım, mobil uygulama, kurumsal yazılım, yazılım çözümleri, dijital dönüşüm, yazılım danışmanlığı"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content="Turkish" />
+        <meta name="author" content="Sentro Yazılım" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://sentroyazilim.com/" />
+        <meta property="og:title" content="Sentro Yazılım - Web, Mobil ve Kurumsal Yazılım Çözümleri" />
+        <meta
+          property="og:description"
+          content="Modern yazılım çözümleri ile işletmenizi dijital dönüşümde bir adım öne taşıyoruz."
+        />
+        <meta property="og:site_name" content="Sentro Yazılım" />
+        <meta property="og:locale" content="tr_TR" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:url" content="https://sentroyazilim.com/" />
+        <meta property="twitter:title" content="Sentro Yazılım - Web, Mobil ve Kurumsal Yazılım Çözümleri" />
+        <meta
+          property="twitter:description"
+          content="Modern yazılım çözümleri ile işletmenizi dijital dönüşümde bir adım öne taşıyoruz."
+        />
+        <meta property="twitter:creator" content="@sentroyazilim" />
+
+        {/* Additional SEO Tags */}
+        <link rel="canonical" href="https://sentroyazilim.com/" />
+        <meta name="theme-color" content="#6366F1" />
+        <meta name="msapplication-TileColor" content="#6366F1" />
+
+        {/* Favicon */}
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
+
+        {/* Preconnect for performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* Business Info for Local SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Sentro Yazılım",
+              "url": "https://sentroyazilim.com",
+              "logo": "https://sentroyazilim.com/logo.png",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer service",
+                "areaServed": "TR",
+                "availableLanguage": "Turkish"
+              },
+              "sameAs": [
+                "https://linkedin.com/in/esatdlkc",
+                "https://instagram.com/esat.dalkilicc"
+              ],
+              "description": "Modern yazılım çözümleri ile işletmenizi dijital dönüşümde bir adım öne taşıyoruz"
+            }),
+          }}
+        />
+      </Head>
+
+      <div className="min-h-screen bg-black relative">
+        
+        {/* Background image only at top */}
+        <div
+          className="absolute top-0 left-0 w-full h-screen bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/hero-bg.jpg')" }}
+        ></div>
+
+        {/* Gradient overlay to fade out the image */}
+        <div
+          className="absolute top-0 left-0 w-full h-screen"
+          style={{
+            background: 'linear-gradient(to bottom, transparent 0%, transparent 40%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.7) 80%, black 100%)'
+          }}
+        ></div>
+
+        <section className="relative z-10 max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Header />
+          <main>
+            {/* Hero Section */}
+            <section aria-label="Sentro Yazılım Ana Tanıtım">
+              <HeroArea />
+            </section>
+
+            {/* Services Section */}
+            <section aria-label="Hizmetlerimiz">
+              <Services />
+            </section>
+
+            {/* FAQ Section */}
+            <section aria-label="Sık Sorulan Sorular">
+              <FAQ />
+            </section>
+
+            {/* Contact Section */}
+            <section aria-label="İletişim">
+              <Contact />
+            </section>
+            
+          </main>
+          <Footer />
+        </section>
+
+      </div>
+    </>
+  )
 }
