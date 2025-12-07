@@ -201,6 +201,7 @@ export default function Header() {
   return (
     <header className="sticky top-5 z-50 bg-black/50 backdrop-blur-xl mx-auto border border-gray-800 shadow-xl py-[6px] px-2 rounded-xl transition-all duration-300">
       <div className="mx-auto max-w-8xl">
+
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -268,8 +269,8 @@ export default function Header() {
           </div>
 
           {/* Mobile Menu Toggle */}
-          <div className="md:hidden">
-            <button onClick={toggleMenu} className="text-white">
+          <div className="md:hidden flex items-center justify-center ">
+            <button onClick={toggleMenu} className="text-white ">
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>

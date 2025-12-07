@@ -53,7 +53,7 @@ export default function HeroArea() {
             viewport={{ once: false }}
             transition={{ duration: 0.6 }}
           >
-            <p className="relative border border-primary/40 rounded-xl text-white items-center gap-2 px-3 py-1 sm:px-4 sm:py-2 inline-flex bg-primary/10 backdrop-blur-xl shadow-lg drop-shadow-[0_0_20px_rgba(255,255,255,0.25)] text-sm sm:text-base">
+            <p className="relative border border-primary/40 rounded-xl text-white items-center gap-2 px-3 py-1 sm:px-4 sm:py-2 inline-flex bg-primary/10 backdrop-blur-xl shadow-lg text-sm sm:text-base">
               <span className="font-medium">Sentro Yazılım</span>
             </p>
           </motion.div>
@@ -165,8 +165,10 @@ export default function HeroArea() {
                   src="/hero-image.jpg"
                   alt="Sentro Yazılım - Modern Yazılım Çözümleri"
                   fill
-                  className="object-cover rounded-lg"
+                  className="object-cover rounded-lg select-none"
                   priority
+                  draggable={false}
+                  onContextMenu={(e) => e.preventDefault()}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
                 />
               </div>
@@ -184,10 +186,10 @@ export default function HeroArea() {
           return (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: false }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.9, delay: index * 0.20 }}
               className="group relative bg-black/40 backdrop-blur-xl rounded-xl p-6 border border-gray-700/30 hover:border-primary/40 transition-all duration-500"
             >
               <div className="relative z-10">

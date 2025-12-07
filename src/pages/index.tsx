@@ -35,17 +35,23 @@ export default function Home() {
           property="og:description"
           content="Modern yazılım çözümleri ile işletmenizi dijital dönüşümde bir adım öne taşıyoruz."
         />
+        <meta property="og:image" content="https://sentroyazilim.com/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Sentro Yazılım - Modern Yazılım Çözümleri" />
         <meta property="og:site_name" content="Sentro Yazılım" />
         <meta property="og:locale" content="tr_TR" />
 
         {/* Twitter */}
-        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://sentroyazilim.com/" />
         <meta property="twitter:title" content="Sentro Yazılım - Web, Mobil ve Kurumsal Yazılım Çözümleri" />
         <meta
           property="twitter:description"
           content="Modern yazılım çözümleri ile işletmenizi dijital dönüşümde bir adım öne taşıyoruz."
         />
+        <meta property="twitter:image" content="https://sentroyazilim.com/og-image.jpg" />
+        <meta property="twitter:image:alt" content="Sentro Yazılım - Modern Yazılım Çözümleri" />
         <meta property="twitter:creator" content="@sentroyazilim" />
 
         {/* Additional SEO Tags */}
