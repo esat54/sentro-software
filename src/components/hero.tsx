@@ -188,7 +188,7 @@ export default function HeroArea() {
               key={index}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              viewport={{ once: false }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.9, delay: index * 0.20 }}
               className="group relative bg-black/40 backdrop-blur-xl rounded-xl p-6 border border-gray-700/30 hover:border-primary/40 transition-all duration-500"
             >
