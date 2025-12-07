@@ -29,13 +29,13 @@ export default function Home() {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://sentroyazilim.com/" />
+        <meta property="og:url" content="https://www.sentrosoftware.xyz/" />
         <meta property="og:title" content="Sentro Yazılım - Web, Mobil ve Kurumsal Yazılım Çözümleri" />
         <meta
           property="og:description"
           content="Modern yazılım çözümleri ile işletmenizi dijital dönüşümde bir adım öne taşıyoruz."
         />
-        <meta property="og:image" content="https://sentroyazilim.com/og-image.jpg" />
+        <meta property="og:image" content="https://www.sentrosoftware.xyz/og-image.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Sentro Yazılım - Modern Yazılım Çözümleri" />
@@ -44,18 +44,18 @@ export default function Home() {
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://sentroyazilim.com/" />
+        <meta property="twitter:url" content="https://www.sentrosoftware.xyz/" />
         <meta property="twitter:title" content="Sentro Yazılım - Web, Mobil ve Kurumsal Yazılım Çözümleri" />
         <meta
           property="twitter:description"
           content="Modern yazılım çözümleri ile işletmenizi dijital dönüşümde bir adım öne taşıyoruz."
         />
-        <meta property="twitter:image" content="https://sentroyazilim.com/og-image.jpg" />
+        <meta property="twitter:image" content="https://www.sentrosoftware.xyz/og-image.jpg" />
         <meta property="twitter:image:alt" content="Sentro Yazılım - Modern Yazılım Çözümleri" />
         <meta property="twitter:creator" content="@sentroyazilim" />
 
         {/* Additional SEO Tags */}
-        <link rel="canonical" href="https://sentroyazilim.com/" />
+        <link rel="canonical" href="https://www.sentrosoftware.xyz/" />
         <meta name="theme-color" content="#6366F1" />
         <meta name="msapplication-TileColor" content="#6366F1" />
 
@@ -75,8 +75,7 @@ export default function Home() {
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "Sentro Yazılım",
-              "url": "https://sentroyazilim.com",
-              "logo": "https://sentroyazilim.com/logo.png",
+              "url": "https://www.sentrosoftware.xyz",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "contactType": "customer service",
