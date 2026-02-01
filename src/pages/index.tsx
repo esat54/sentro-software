@@ -92,8 +92,8 @@ export default function Home() {
         />
       </Head>
 
-      <div className="min-h-screen bg-black relative">
-        
+      <div className="min-h-screen bg-black relative overflow-hidden">
+
         {/* Background image only at top */}
         <div
           className="absolute top-0 left-0 w-full h-screen bg-cover bg-center bg-no-repeat"
@@ -106,7 +106,8 @@ export default function Home() {
           style={{
             background: 'linear-gradient(to bottom, transparent 0%, transparent 40%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.7) 80%, black 100%)'
           }}
-        ></div>
+        >
+        </div>
 
         <section className="relative z-10 max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <Header />
@@ -130,7 +131,7 @@ export default function Home() {
             <section aria-label="İletişim">
               <Contact />
             </section>
-            
+
           </main>
           <Footer />
         </section>
